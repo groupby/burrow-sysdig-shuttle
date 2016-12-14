@@ -4,11 +4,15 @@
   "description": "Shuttles consumer lag info from Burrow into Sysdig",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests/**/*.spec.js"
+    "test": "mocha tests/**/*.spec.js",
+    "license": "node licenseChecker.js"
   },
+  "precommit": [
+    "license"
+  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/burrow-sysdig-shuttle/wisdom.git"
+    "url": "git+https://github.com/groupby/burrow-sysdig-shuttle.git"
   },
   "author": "GroupBy",
   "license": "MIT",
@@ -27,8 +31,10 @@
     "statsd-client": "^0.2.4"
   },
   "devDependencies": {
-    "chai-spies": "^0.7.1",
     "chai": "^3.5.0",
-    "nock": "^9.0.2"
+    "chai-spies": "^0.7.1",
+    "gb-license-check": "^1.0.1",
+    "nock": "^9.0.2",
+    "pre-commit": "^1.2.2"
   }
 }
