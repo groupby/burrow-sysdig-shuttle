@@ -1,0 +1,31 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: burrow-sysdig-shuttle
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        component: wisdom
+        name: burrow-sysdig-shuttle
+    spec:
+      imagePullSecrets:
+        - name: groupby-registry
+      containers:
+      - name: burrow-sysdig-shuttle
+        image: docker.groupbyinc.com/burrow-sysdig-shuttle:latest
+        env:
+          - name: BURROW_HOST
+            value: localhost
+          - name: BURROW_PORT
+            value: "8000"
+          - name: BURROW_KAFKA_CLUSTER_NAME
+            value: wisdom
+      - name: burrow
+        image: docker.groupbyinc.com/burrow:latest
