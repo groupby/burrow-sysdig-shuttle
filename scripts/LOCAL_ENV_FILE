@@ -1,0 +1,16 @@
+export ES_HOST=localhost
+export ES_PORT=9200
+export REDIS_HOST=localhost
+export REDIS_PORT=6379
+export RABBITMQ_HOST=localhost
+export RABBITMQ_PORT=5672
+export RABBITMQ_USERNAME=guest
+export RABBITMQ_PASSWORD=guest
+export RABBITMQ_EX_NAME=event-tracker
+export RABBITMQ_EX_TYPE=fanout
+export RABBITMQ_EX_ROUTINGKEY=tracker
+export RABBITMQ_QUEUE=tracker-queue
+export RECOMMENDATIONS_URI=localhost:7000
+export TRACKER_URI=localhost:8080
+export EXPERIMENTS_URI=localhost:8080
+export MUTATORS_URI=localhost:8080
