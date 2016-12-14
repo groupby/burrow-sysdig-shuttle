@@ -1,6 +1,6 @@
 {
   "name": "burrow-sysdig-shuttle",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Shuttles consumer lag info from Burrow into Sysdig",
   "main": "index.js",
   "scripts": {
