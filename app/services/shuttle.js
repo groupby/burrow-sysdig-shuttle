@@ -34,11 +34,16 @@ const Shuttle = function (sdc, config) {
     .props();
 
   self.sendLagStatusToSysdig = (results) => {
-    log.info(`Lag status:\n${stringify(results, null, 2)}`);
+    log.debug(`Lag status:\n${stringify(results, null, 2)}`);
 
     return Object.keys(results)
       .forEach((consumer) => Object.keys(results[consumer])
-        .forEach((topic) => sdc.gauge(getGaugeName(consumer, topic), results[consumer][topic])));
+        .forEach((topic) => {
+          if (results[consumer][topic] > 0) {
+            log.warn(`consumer '${consumer}' topic '${topic}' has lag: ${results[consumer][topic]}`)
+          }
+          return sdc.gauge(getGaugeName(consumer, topic), results[consumer][topic])
+        }));
   };
 
   self.shuttleLag = () => self.getLagFromBurrow()
