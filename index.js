@@ -11,6 +11,7 @@ log.info(`Starting ${config.FRAMEWORK_NAME} with config:\n${stringify(config, nu
 const app    = express();
 app.services = new Services(config);
 app.services.shuttle.startLagShuttling(config.lagShuttleIntervalMs);
+app.services.monitor.startk8sMonitoring(config.k8sIntervalMs);
 
 log.info(`Started lag shuttle for every ${config.lagShuttleIntervalMs} ms.`);
 

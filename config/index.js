@@ -9,6 +9,7 @@ const config = {
   port:                 8080,
   logLevel:             'debug',
   lagShuttleIntervalMs: 5 * 1000,
+  k8sIntervalMs: 4 * 1000,
   burrow:               {
     hostName:         (process.env.BURROW_HOST || 'localhost'),
     port:             (process.env.BURROW_PORT || 8000),
