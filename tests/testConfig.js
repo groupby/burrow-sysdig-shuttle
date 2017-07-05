@@ -1,7 +1,7 @@
 const bunyan       = require('bunyan');
 const PrettyStream = require('bunyan-prettystream');
 
-const prettyStdOut = new PrettyStream();
+const prettyStdOut = new PrettyStream({useColor: false});
 prettyStdOut.pipe(process.stdout);
 
 const config = {
